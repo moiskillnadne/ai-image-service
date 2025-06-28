@@ -8,4 +8,10 @@ export const auth = defineAuth({
   loginWith: {
     email: true,
   },
+  senders: {
+    email: {
+      fromEmail: 'victor.ryabkov.business@gmail.com',
+      fromName: 'Trend Image AI'
+    }
+  }
 });
