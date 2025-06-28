@@ -12,7 +12,7 @@ const { cfnUserPool, cfnUserPoolClient } = cfnResources;
 
 cfnUserPool.addPropertyOverride(
   'Policies.SignInPolicy.AllowedFirstAuthFactors',
-  ['PASSWORD', 'WEB_AUTHN', 'EMAIL_OTP']
+  ['PASSWORD', 'EMAIL_OTP']
 );
 
 cfnUserPoolClient.explicitAuthFlows = [

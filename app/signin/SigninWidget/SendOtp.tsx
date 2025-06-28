@@ -1,5 +1,5 @@
 'use client'
-import { signIn } from "aws-amplify/auth";
+import { confirmSignIn, signIn } from "aws-amplify/auth";
 import { EmailInput } from "../components/EmailInput";
 
 type Props = {
@@ -23,7 +23,16 @@ export const SendOtp = ({ onSendCode, email, setEmail }: Props) => {
 
     console.log(result)
 
-    onSendCode()
+    if(result.nextStep?.signInStep === "CONTINUE_SIGN_IN_WITH_FIRST_FACTOR_SELECTION") {
+      const confirmResult = await confirmSignIn({
+        challengeResponse: "EMAIL_OTP"
+      })
+      console.log(confirmResult)
+    }
+
+    if(result.nextStep.signInStep === "CONFIRM_SIGN_IN_WITH_EMAIL_CODE") {
+      onSendCode()
+    }
   };
 
   return (

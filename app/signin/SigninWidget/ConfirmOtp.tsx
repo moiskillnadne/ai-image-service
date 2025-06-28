@@ -1,4 +1,5 @@
 'use client'
+import { confirmSignIn } from "aws-amplify/auth"
 import { CodeInput } from "../components/CodeInput"
 
 type Props = {
@@ -9,10 +10,18 @@ type Props = {
 
 export const ConfirmOtp = ({ code, setCode, onConfirm }: Props) => {
 
-  const handleConfirmCode = () => {
+  const handleConfirmCode = async () => {
     console.log('Confirming code:', code);
 
-    onConfirm()
+    const result = await confirmSignIn({
+      challengeResponse: code
+    })
+
+    console.log(result)
+
+    if(result.nextStep.signInStep === "DONE") {
+      onConfirm()
+    }
   }
 
   return (
