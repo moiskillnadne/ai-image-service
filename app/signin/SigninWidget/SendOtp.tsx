@@ -1,3 +1,4 @@
+'use client'
 import { signIn } from "aws-amplify/auth";
 import { EmailInput } from "../components/EmailInput";
 
@@ -12,7 +13,7 @@ export const SendOtp = ({ onSendCode, email, setEmail }: Props) => {
   const handleSendCode = async () => {
     console.log('Sending code to:', email);
 
-    const result =await signIn({
+    const result = await signIn({
       username: email,
       options: {
         authFlowType: "USER_AUTH",

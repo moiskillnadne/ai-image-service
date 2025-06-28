@@ -1,3 +1,4 @@
+'use client'
 import { CodeInput } from "../components/CodeInput"
 
 type Props = {

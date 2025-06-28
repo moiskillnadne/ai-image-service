@@ -1,3 +1,4 @@
+'use client'
 import { useState } from "react"
 import { ConfirmOtp } from "./ConfirmOtp"
 import { SendOtp } from "./SendOtp"
