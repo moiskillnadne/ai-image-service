@@ -1,14 +1,16 @@
 'use client'
 import { confirmSignIn } from "aws-amplify/auth"
 import { CodeInput } from "../components/CodeInput"
+import { ArrowLeftIcon } from "lucide-react"
 
 type Props = {
   code: string
   setCode: (code: string) => void
   onConfirm: () => void
+  onBack: () => void
 }
 
-export const ConfirmOtp = ({ code, setCode, onConfirm }: Props) => {
+export const ConfirmOtp = ({ code, setCode, onConfirm, onBack }: Props) => {
 
   const handleConfirmCode = async () => {
     console.log('Confirming code:', code);
@@ -24,8 +26,18 @@ export const ConfirmOtp = ({ code, setCode, onConfirm }: Props) => {
     }
   }
 
+  const handleResendCode = async () => {
+    console.log('Resending code')
+  }
+
   return (
     <div>
+      <div>
+        <button onClick={onBack} className="mb-6 transition-all duration-300 hover:cursor-pointer transform hover:-translate-y-1">
+          <ArrowLeftIcon /> Назад
+        </button>
+      </div>
+      
       <CodeInput
           code={code}
           onCodeChange={(e) => setCode(e.target.value)}
@@ -40,6 +52,10 @@ export const ConfirmOtp = ({ code, setCode, onConfirm }: Props) => {
           >
           Войти
         </button>
+      </div>
+
+      <div className="text-center mt-6">
+        <button onClick={handleResendCode} className="text-sm text-gray-500 hover:text-gray-700 transition-colors">Отправить код повторно</button>
       </div>
     </div>
   )

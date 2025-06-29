@@ -15,7 +15,7 @@ export const SigninWidget = ({ step, setStep }: Props) => {
   return (
     <div>
       {step === "SEND_CODE" && <SendOtp onSendCode={() => setStep("CONFIRM_CODE")} email={email} setEmail={setEmail} />}
-      {step === "CONFIRM_CODE" && <ConfirmOtp code={code} setCode={setCode} onConfirm={() => {}} />}
+      {step === "CONFIRM_CODE" && <ConfirmOtp code={code} setCode={setCode} onConfirm={() => {}} onBack={() => setStep("SEND_CODE")}/>}
     </div>
   )
 }

@@ -20,6 +20,3 @@ cfnUserPoolClient.explicitAuthFlows = [
   'ALLOW_USER_AUTH'
 ];
 
-cfnUserPool.addPropertyOverride('WebAuthnRelyingPartyID', 'localhost');
-cfnUserPool.addPropertyOverride('WebAuthnUserVerification', 'preferred');
-

@@ -52,6 +52,7 @@ export const SendOtp = ({ onSendCode, email, setEmail }: Props) => {
           Отправить код
         </button>
       </div>
+      
     </div>
   )
 }
