@@ -14,7 +14,7 @@ export const Header = () => {
         </div>
 
         <div className="flex justify-end mb-6">
-          <Link href={`/signin`}>
+          <Link href={`/auth`}>
             <button className="bg-blue-400 hover:bg-blue-500 text-white px-8 py-3 rounded-full text-lg font-medium transition duration-300 transition-colors shadow-lg">
               НАЧАТЬ СОЗДАНИЕ
             </button>
